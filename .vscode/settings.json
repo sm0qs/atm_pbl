@@ -1,0 +1,17 @@
+{
+	// VS Code settings
+	"editor.formatOnSave": true,
+	"files.eol": "\n",
+	"files.exclude": {},
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		".gitignore": ".gitattributes",
+		".editorconfig": ".clang-format"
+	},
+
+	// Language-specific settings
+	"[cpp]": {
+		"editor.defaultFormatter": "ms-vscode.cpptools"
+	}
+}
