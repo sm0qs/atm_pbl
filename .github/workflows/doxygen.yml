@@ -2,7 +2,7 @@ name: Build Doxygen docs and publish to docs-pages root
 
 on:
   push:
-    branches: ["docs"]
+    branches: ["main"]
   workflow_dispatch: {}
 
 permissions:
@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source (docs branch)
+      - name: Checkout source (main branch)
         uses: actions/checkout@v6
         with:
-          ref: docs
+          ref: main
           path: src
           fetch-depth: 0
 
@@ -60,7 +60,7 @@ jobs:
 
           if git status --porcelain | grep .; then
             git add -A
-            git commit -m "Update Doxygen docs (from docs branch)"
+            git commit -m "Update Doxygen docs (from main branch)"
             git push origin HEAD:docs-pages
           else
             echo "No changes to publish."
