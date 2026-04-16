@@ -12,6 +12,6 @@
 int main() {
 	using namespace std;
 
-	cout << "Hello, World!" << endl;
+	cout << "=== ATM Terminal ===" << endl;
 	return 0;
 }
