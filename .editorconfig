@@ -14,3 +14,7 @@ max_line_length = off
 
 [*.json]
 tab_width = 2
+
+[*.{yml,yaml}]
+indent_style = space
+tab_width = 2
