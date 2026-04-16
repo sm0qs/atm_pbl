@@ -1,66 +1,67 @@
 name: Build Doxygen docs and publish to docs-pages root
 
 on:
-    push:
-        branches: ["docs"]
-    workflow_dispatch: {}
+  push:
+    branches: ["docs"]
+  workflow_dispatch: {}
 
 permissions:
-    contents: write
+  contents: write
 
 concurrency:
-    group: doxygen-docs
-    cancel-in-progress: true
+  group: doxygen-docs
+  cancel-in-progress: true
 
 jobs:
-    build-and-publish:
-        runs-on: ubuntu-latest
+  build-and-publish:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout source (docs branch)
-              uses: actions/checkout@v6
-              with:
-                  ref: docs
-                  path: src
-                  fetch-depth: 0
+    steps:
+      - name: Checkout source (docs branch)
+        uses: actions/checkout@v6
+        with:
+          ref: docs
+          path: src
+          fetch-depth: 0
 
-            - name: Checkout target (docs-pages branch)
-              uses: actions/checkout@v6
-              with:
-                  ref: docs-pages
-                  path: site
-                  fetch-depth: 0
+      - name: Checkout target (docs-pages branch)
+        uses: actions/checkout@v6
+        with:
+          ref: docs-pages
+          path: site
+          fetch-depth: 0
 
-            - name: Install Doxygen + Graphviz
-              run: |
-                  sudo apt-get update
-                  sudo apt-get install -y doxygen graphviz
+      - name: Install Doxygen + Graphviz
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz
 
-            - name: Generate documentation
-              working-directory: src
-              run: |
-                  doxygen docs/Doxyfile
+      - name: Generate documentation
+        working-directory: src
+        run: |
+          mkdir -p build/docs
+          doxygen docs/Doxyfile
 
-            - name: Publish generated HTML to docs-pages root
-              run: |
-                  find site -mindepth 1 -maxdepth 1 \
-                    ! -name ".git" \
-                    -exec rm -rf {} +
+      - name: Publish generated HTML to docs-pages root
+        run: |
+          find site -mindepth 1 -maxdepth 1 \
+            ! -name ".git" \
+            -exec rm -rf {} +
 
-                  cp -a src/build/docs/html/. site/
+          cp -a src/build/docs/html/. site/
 
-                  touch site/.nojekyll
+          touch site/.nojekyll
 
-            - name: Commit & push (docs-pages)
-              working-directory: site
-              run: |
-                  git config user.name "github-actions[bot]"
-                  git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Commit & push (docs-pages)
+        working-directory: site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-                  if git status --porcelain | grep .; then
-                    git add -A
-                    git commit -m "Update Doxygen docs (from docs branch)"
-                    git push origin HEAD:docs-pages
-                  else
-                    echo "No changes to publish."
-                  fi
+          if git status --porcelain | grep .; then
+            git add -A
+            git commit -m "Update Doxygen docs (from docs branch)"
+            git push origin HEAD:docs-pages
+          else
+            echo "No changes to publish."
+          fi
