@@ -103,9 +103,8 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9d7e8af417b6d543da691e9c0e2f6f9f" id="r_a9d7e8af417b6d543da691e9c0e2f6f9f"><td class="memItemLeft" align="right" valign="top"><a id="a9d7e8af417b6d543da691e9c0e2f6f9f" name="a9d7e8af417b6d543da691e9c0e2f6f9f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearScreen</b> ()</td></tr>
-<tr class="memdesc:a9d7e8af417b6d543da691e9c0e2f6f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the console screen. <br /></td></tr>
+<tr class="memitem:a9d7e8af417b6d543da691e9c0e2f6f9f" id="r_a9d7e8af417b6d543da691e9c0e2f6f9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9d7e8af417b6d543da691e9c0e2f6f9f">clearScreen</a> ()</td></tr>
+<tr class="memdesc:a9d7e8af417b6d543da691e9c0e2f6f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the console screen.  <br /></td></tr>
 <tr class="separator:a9d7e8af417b6d543da691e9c0e2f6f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67b36efb28936825f7928bbb12719133" id="r_a67b36efb28936825f7928bbb12719133"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a67b36efb28936825f7928bbb12719133"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a67b36efb28936825f7928bbb12719133">readValue</a> (T &amp;value, const std::string &amp;prompt)</td></tr>
@@ -121,6 +120,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearScreen</b> ()</t
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Entry point for the ATM project. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a9d7e8af417b6d543da691e9c0e2f6f9f" name="a9d7e8af417b6d543da691e9c0e2f6f9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7e8af417b6d543da691e9c0e2f6f9f">&#9670;&#160;</a></span>clearScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clearScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the console screen. </p>
+<p>Uses a platform-specific system command to clear the terminal output:</p><ul>
+<li>On Windows the <code>cls</code> command is used.</li>
+<li>On POSIX systems the <code>clear</code> command is used. </li>
+</ul>
+
+</div>
+</div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
 
@@ -137,7 +159,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearScreen</b> ()</t
 </div><div class="memdoc">
 
 <p>Program entry point. </p>
-<dl class="section return"><dt>Returns</dt><dd>Exit status code. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Program exit status. Returns 0 on normal termination. </dd></dl>
 
 </div>
 </div>
@@ -158,6 +180,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clearScreen</b> ()</t
 
 <p>Displays the main menu and gets the user's choice. </p>
 <dl class="section return"><dt>Returns</dt><dd>The user's menu choice. </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>User Login selected. </td></tr>
+    <tr><td class="paramname">2</td><td>Admin Login selected. </td></tr>
+    <tr><td class="paramname">3</td><td>Exit selected. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -190,20 +220,22 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Reads a value of type T from the user with a prompt. </p>
+<p>Prints <code>prompt</code> to standard output and attempts to parse a value of type <code>T</code> from <code>std::cin</code>. On parse failure the stream is cleared and the rest of the input line is discarded.</p>
+<p>Example: <code>int choice; readValue&lt;int&gt;(choice, "Enter choice: ");</code></p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of value to read. </td></tr>
+    <tr><td class="paramname">T</td><td>The type of value to read (e.g. <code>int</code>, <code>double</code>). </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Reference to store the read value. </td></tr>
-    <tr><td class="paramname">prompt</td><td>The message to display to the user. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Reference where the parsed value will be stored on success. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">prompt</td><td>The message displayed to the user before reading input. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the value was successfully read, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a value of type <code>T</code> was successfully read and stored, <code>false</code> if input parsing failed. </dd></dl>
 
 </div>
 </div>
