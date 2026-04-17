@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['atm_0',['ATM',['../index.html',1,'']]]
+  ['awesome_0',['Doxygen Awesome',['../index.html',1,'']]]
 ];

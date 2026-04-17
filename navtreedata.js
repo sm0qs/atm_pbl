@@ -25,7 +25,64 @@
 var NAVTREE =
 [
   [ "ATM Project", "index.html", [
-    [ "ATM", "index.html", "index" ],
+    [ "Doxygen Awesome", "index.html", "index" ],
+    [ "Customization", "md_docs_2css_2docs_2customization.html", [
+      [ "CSS-Variables", "md_docs_2css_2docs_2customization.html#autotoc_md1", [
+        [ "Setup", "md_docs_2css_2docs_2customization.html#autotoc_md2", null ],
+        [ "Available variables", "md_docs_2css_2docs_2customization.html#autotoc_md3", null ]
+      ] ],
+      [ "Doxygen generator", "md_docs_2css_2docs_2customization.html#autotoc_md4", null ],
+      [ "Share your customizations", "md_docs_2css_2docs_2customization.html#autotoc_md5", null ]
+    ] ],
+    [ "Extensions", "md_docs_2css_2docs_2extensions.html", [
+      [ "Dark Mode Toggle", "md_docs_2css_2docs_2extensions.html#extension-dark-mode-toggle", [
+        [ "Installation", "md_docs_2css_2docs_2extensions.html#autotoc_md7", null ],
+        [ "Customizing", "md_docs_2css_2docs_2extensions.html#autotoc_md8", null ]
+      ] ],
+      [ "Fragment Copy Button", "md_docs_2css_2docs_2extensions.html#extension-copy-button", [
+        [ "Installation", "md_docs_2css_2docs_2extensions.html#autotoc_md9", null ],
+        [ "Customizing", "md_docs_2css_2docs_2extensions.html#autotoc_md10", null ]
+      ] ],
+      [ "Paragraph Linking", "md_docs_2css_2docs_2extensions.html#extension-para", [
+        [ "Installation", "md_docs_2css_2docs_2extensions.html#autotoc_md11", null ],
+        [ "Customizing", "md_docs_2css_2docs_2extensions.html#autotoc_md12", null ]
+      ] ],
+      [ "Interactive TOC", "md_docs_2css_2docs_2extensions.html#extension-toc", [
+        [ "Installation", "md_docs_2css_2docs_2extensions.html#autotoc_md13", null ],
+        [ "Customizing", "md_docs_2css_2docs_2extensions.html#autotoc_md14", null ]
+      ] ],
+      [ "Tabs", "md_docs_2css_2docs_2extensions.html#extension-tabs", [
+        [ "Installation", "md_docs_2css_2docs_2extensions.html#autotoc_md15", null ],
+        [ "Usage", "md_docs_2css_2docs_2extensions.html#autotoc_md16", null ]
+      ] ],
+      [ "Page Navigation", "md_docs_2css_2docs_2extensions.html#extension-page-navigation", [
+        [ "Installation", "md_docs_2css_2docs_2extensions.html#autotoc_md17", null ],
+        [ "Usage", "md_docs_2css_2docs_2extensions.html#autotoc_md18", null ]
+      ] ]
+    ] ],
+    [ "Tips & Tricks", "md_docs_2css_2docs_2tricks.html", [
+      [ "Diagrams with Graphviz", "md_docs_2css_2docs_2tricks.html#tricks-graphviz", null ],
+      [ "Disable Dark Mode", "md_docs_2css_2docs_2tricks.html#tricks-darkmode", null ],
+      [ "Choosing Sidebar Width", "md_docs_2css_2docs_2tricks.html#tricks-sidebar", null ],
+      [ "Formatting Tables", "md_docs_2css_2docs_2tricks.html#tricks-tables", [
+        [ "Centering", "md_docs_2css_2docs_2tricks.html#autotoc_md20", null ],
+        [ "Full Width", "md_docs_2css_2docs_2tricks.html#autotoc_md21", null ],
+        [ "Buttons", "md_docs_2css_2docs_2tricks.html#autotoc_md22", null ],
+        [ "Bordered Images", "md_docs_2css_2docs_2tricks.html#autotoc_md23", null ]
+      ] ]
+    ] ],
+    [ "Bug List", "bug.html", null ],
+    [ "Deprecated List", "deprecated.html", null ],
+    [ "Todo List", "todo.html", null ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
@@ -38,7 +95,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_68267d1309a1af8e8297ef4c3efbcdba.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
