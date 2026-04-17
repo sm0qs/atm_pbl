@@ -3,6 +3,10 @@ name: Build Doxygen docs and publish to docs-pages root
 on:
   push:
     branches: ["main"]
+    paths:
+      - "docs/**"
+      - "src/**"
+      - "README.md"
   workflow_dispatch: {}
 
 permissions:
