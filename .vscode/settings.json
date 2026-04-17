@@ -2,7 +2,9 @@
 	// VS Code settings
 	"editor.formatOnSave": true,
 	"files.eol": "\n",
-	"files.exclude": {},
+	"files.exclude": {
+		"build": true
+	},
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.patterns": {
