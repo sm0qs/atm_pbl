@@ -27,6 +27,7 @@ jobs:
           ref: main
           path: src
           fetch-depth: 0
+          submodules: "recursive"
 
       - name: Checkout target (docs-pages branch)
         uses: actions/checkout@v6
