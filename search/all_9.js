@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['layout_0',['Choosing a layout',['../index.html#autotoc_md40',1,'']]],
-  ['linking_1',['Paragraph Linking',['../md_docs_2css_2docs_2extensions.html#extension-para',1,'']]],
-  ['linux_2',['Linux',['..//home/runner/work/atm_pbl/atm_pbl/src/README.md#autotoc_md47',1,'']]],
-  ['list_3',['list',['../bug.html',1,'Bug List'],['../deprecated.html',1,'Deprecated List'],['../todo.html',1,'Todo List']]],
-  ['lists_4',['Lists',['../classMyLibrary_1_1Example.html#autotoc_md27',1,'']]],
-  ['long_5ffunction_5fwith_5fmany_5fparameters_5',['long_function_with_many_parameters',['../classMyLibrary_1_1SubclassExample.html#a92227fff4f72a11be0e21d88914ba63e',1,'MyLibrary::SubclassExample']]]
-];
