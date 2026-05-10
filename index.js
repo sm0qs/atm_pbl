@@ -1,10 +1,10 @@
 var index =
 [
-    [ "Bezpieczeństwo i Technologia", "index.html#autotoc_md6", null ],
-    [ "Funkcjonalności", "index.html#autotoc_md7", [
-      [ "Użytkownik", "index.html#autotoc_md8", null ],
+    [ "Security and Technology", "index.html#autotoc_md6", null ],
+    [ "Features", "index.html#autotoc_md7", [
+      [ "User", "index.html#autotoc_md8", null ],
       [ "Administrator", "index.html#autotoc_md9", null ]
     ] ],
-    [ "Struktura Projektu", "index.html#autotoc_md10", null ],
-    [ "Kompilacja i Uruchomienie", "index.html#autotoc_md11", null ]
+    [ "Project Structure", "index.html#autotoc_md10", null ],
+    [ "Compilation and Execution", "index.html#autotoc_md11", null ]
 ];

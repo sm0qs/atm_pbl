@@ -123,43 +123,43 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Secure ATM Simulator (C++) </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> Zaawansowany symulator bankomatu stworzony w języku C++, wykorzystujący nowoczesne standardy kryptograficzne oraz zautomatyzowany system budowania projektu. Aplikacja realizuje wszystkie wymagania zawarte w specyfikacji technicznej projektu Bankomat.</p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> An advanced ATM simulator developed in C++, utilizing modern cryptographic standards and an automated project build system. The application fulfills all requirements specified in the "Bankomat.pdf" technical documentation.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
-Bezpieczeństwo i Technologia</h1>
-<p>Projekt został zaimplementowany z naciskiem na bezpieczeństwo oraz modularność:</p><ul>
-<li><b>Kryptografia (libsodium):</b> PIN-y użytkowników są zabezpieczone algorytmem Argon2id (funkcja <code>crypto_pwhash</code>). Zgodnie z wymaganiami bezpieczeństwa, system nie przechowuje haseł w postaci jawnej.</li>
-<li><b>Trwałość danych (JSON):</b> Stan kont oraz historia operacji są zapisywane w formacie JSON, co zapewnia trwałość danych między sesjami programu.</li>
-<li><b>Automatyzacja (CMake):</b> Zastosowanie modułu FetchContent w pliku CMakeLists.txt sprawia, że biblioteki zewnętrzne (libsodium oraz nlohmann_json) są pobierane i konfigurowane automatycznie podczas budowania projektu.</li>
+Security and Technology</h1>
+<p>The project has been implemented with a strong emphasis on security and modularity:</p><ul>
+<li><b>Cryptography (libsodium):</b> <a class="el" href="classUser.html" title="Represents a bank user account with security and balance information.">User</a> PINs are secured using the Argon2id algorithm (<code>crypto_pwhash</code> function). In accordance with security requirements, the system does not store passwords in plain text.</li>
+<li><b>Data Persistence (JSON):</b> Account states and transaction histories are saved in JSON format, ensuring data persistence between program sessions.</li>
+<li><b>Automation (CMake):</b> The use of the FetchContent module in the CMakeLists.txt file ensures that external libraries (libsodium and nlohmann_json) are automatically downloaded and configured during the build process.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md7"></a>
-Funkcjonalności</h1>
+Features</h1>
 <h2><a class="anchor" id="autotoc_md8"></a>
-Użytkownik</h2>
+User</h2>
 <ul>
-<li><b>Logowanie:</b> Proces autoryzacji z mechanizmem blokady konta po trzech nieudanych próbach.</li>
-<li><b>Zarządzanie środkami:</b> Sprawdzanie aktualnego salda, wpłaty oraz wypłaty z obowiązkową weryfikacją dostępnych funduszy.</li>
-<li><b>Historia:</b> Wgląd w listę operacji, takich jak wpłaty, wypłaty i sesje logowania.</li>
+<li><b>Login:</b> Authentication process with a lockout mechanism after three failed attempts.</li>
+<li><b>Fund Management:</b> Checking current balance, deposits, and withdrawals with mandatory verification of available funds.</li>
+<li><b>History:</b> Access to a list of operations, including deposits, withdrawals, and login sessions.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Administrator</h2>
 <ul>
-<li>Tworzenie nowych kont użytkowników.</li>
-<li>Resetowanie kodów PIN.</li>
-<li>Odblokowywanie kont zablokowanych przez system.</li>
+<li>Creation of new user accounts.</li>
+<li>Resetting user PINs.</li>
+<li>Unlocking accounts blocked by the system.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md10"></a>
-Struktura Projektu</h1>
-<p>Kod jest podzielony na dedykowane przestrzenie nazw, co zapewnia wysoką modularność:</p><ul>
-<li><b>auth:</b> Obsługa bezpiecznego hashowania i weryfikacji kodów PIN.</li>
-<li><b>logic:</b> Główna logika sterująca systemem ATM.</li>
-<li><b>storage:</b> Warstwa trwałego przechowywania danych i serializacji do formatu JSON.</li>
-<li><b>ui:</b> Obsługa interfejsu użytkownika oraz walidacja danych wejściowych.</li>
+Project Structure</h1>
+<p>The code is divided into dedicated namespaces, ensuring high modularity:</p><ul>
+<li><b>auth:</b> Handles secure hashing and PIN verification.</li>
+<li><b>logic:</b> Main logic controlling the ATM system.</li>
+<li><b>storage:</b> Data persistence layer and JSON serialization.</li>
+<li><b>ui:</b> <a class="el" href="classUser.html" title="Represents a bank user account with security and balance information.">User</a> interface handling and input validation.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md11"></a>
-Kompilacja i Uruchomienie</h1>
-<p>Projekt wykorzystuje system budowania CMake.</p>
+Compilation and Execution</h1>
+<p>The project utilizes the CMake build system.</p>
 <ol type="1">
-<li><b>Konfiguracja i kompilacja:</b> ```bash mkdir build &amp;&amp; cd build cmake .. make </li>
+<li><b>Configuration and compilation:</b> ```bash mkdir build &amp;&amp; cd build cmake .. make </li>
 </ol>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
