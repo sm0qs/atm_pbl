@@ -3,19 +3,33 @@ name: Release
 on:
   push:
     tags:
-      - 'v*' # Trigger on version tags like v1.0.0
+      - 'v*'
 
 permissions:
-  contents: write # Needed to create a release
+  contents: write
 
 jobs:
   build-and-release:
-    runs-on: ubuntu-latest
+    name: Build and Release for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            artifact_name: atm-linux-x64
+            asset_extension: .tar.gz
+            executable_name: atm
+          - os: windows-latest
+            artifact_name: atm-windows-x64
+            asset_extension: .zip
+            executable_name: atm.exe
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Dependencies
+    - name: Install Dependencies (Linux)
+      if: matrix.os == 'ubuntu-latest'
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential cmake
@@ -26,17 +40,27 @@ jobs:
     - name: Build
       run: cmake --build build --config Release
 
-    - name: Package Executable
+    - name: Package Artifact (Linux)
+      if: matrix.os == 'ubuntu-latest'
       run: |
-        mkdir -p release_assets
-        cp build/atm release_assets/
+        mkdir release_assets
+        cp build/${{ matrix.executable_name }} release_assets/
         cp README.md release_assets/
-        tar -czvf atm-linux-x64.tar.gz -C release_assets .
+        tar -czvf ${{ matrix.artifact_name }}${{ matrix.asset_extension }} -C release_assets .
+
+    - name: Package Artifact (Windows)
+      if: matrix.os == 'windows-latest'
+      shell: pwsh
+      run: |
+        New-Item -ItemType Directory -Force -Path release_assets
+        Copy-Item "build/Release/${{ matrix.executable_name }}" -Destination "release_assets/"
+        Copy-Item "README.md" -Destination "release_assets/"
+        Compress-Archive -Path release_assets/* -DestinationPath "${{ matrix.artifact_name }}${{ matrix.asset_extension }}"
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        files: atm-linux-x64.tar.gz
-        body: "Automated build of the ATM project."
+        files: ${{ matrix.artifact_name }}${{ matrix.asset_extension }}
+        body: "Automated multi-platform build for version ${{ github.ref_name }}."
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
