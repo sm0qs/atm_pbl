@@ -1,0 +1,19 @@
+<map id="src/storage/storage.cpp" name="src/storage/storage.cpp">
+<area shape="rect" id="Node000001" title="Implementation of file&#45;based user data persistence." alt="" coords="226,5,401,31"/>
+<area shape="rect" id="Node000002" href="$storage_8hpp.html" title="User data persistence layer." alt="" coords="129,79,228,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,33,214,74,212,70,290,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="213,225,360,251"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="315,31,292,211,287,211,309,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="351,79,425,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="327,29,368,67,364,71,323,33"/>
+<area shape="rect" id="Node000003" href="$user_8hpp.html" title="Header file for User and Transaction models." alt="" coords="60,152,201,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,106,148,142,144,139,169,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,64,251"/>
+<area shape="poly" id="edge7_Node000002_Node000004" title=" " alt="" coords="130,105,87,123,67,137,50,153,38,182,35,212,30,211,33,180,46,151,63,133,84,119,128,100"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="225,152,276,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="192,102,231,140,227,144,189,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="117,180,63,219,60,215,114,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="99,225,162,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="133,178,133,212,128,212,128,178"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="157,175,250,217,248,222,155,180"/>
+</map>

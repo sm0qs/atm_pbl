@@ -26,6 +26,28 @@ var NAVTREE =
 [
   [ "ATM Project", "index.html", [
     [ "ATM", "index.html", "index" ],
+    [ "ATM System - UML Documentation", "md_docs_2UML.html", [
+      [ "1. Use Case Diagram", "md_docs_2UML.html#autotoc_md1", null ],
+      [ "2. Sequence Diagram - Successful Login", "md_docs_2UML.html#autotoc_md2", null ],
+      [ "3. Sequence Diagram - Account Lockout", "md_docs_2UML.html#autotoc_md3", null ],
+      [ "4. Class Diagram (Simplified Architecture)", "md_docs_2UML.html#autotoc_md4", null ]
+    ] ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
@@ -38,7 +60,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_68267d1309a1af8e8297ef4c3efbcdba.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

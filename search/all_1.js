@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clearscreen_0',['clearScreen',['../main_8cpp.html#a9d7e8af417b6d543da691e9c0e2f6f9f',1,'main.cpp']]]
+  ['2_20sequence_20diagram_20successful_20login_0',['2. Sequence Diagram - Successful Login',['../md_docs_2UML.html#autotoc_md2',1,'']]]
 ];

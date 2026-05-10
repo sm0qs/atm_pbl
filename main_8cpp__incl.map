@@ -1,0 +1,21 @@
+<map id="src/main.cpp" name="src/main.cpp">
+<area shape="rect" id="Node000001" title="Entry point for the secure ATM simulator application." alt="" coords="155,5,261,31"/>
+<area shape="rect" id="Node000002" href="$auth_8hpp.html" title="Authentication module using libsodium for secure hashing." alt="" coords="5,152,117,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,33,142,81,83,143,79,139,138,77,192,29"/>
+<area shape="rect" id="Node000004" href="$atm_8hpp.html" title="Main ATM system logic and controller." alt="" coords="153,79,263,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,31,211,65,205,65,205,31"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="288,79,368,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="229,28,298,69,295,74,226,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="125,225,184,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="78,175,130,215,127,219,75,179"/>
+<area shape="poly" id="edge9_Node000004_Node000003" title=" " alt="" coords="204,105,182,153,164,213,159,211,178,151,199,103"/>
+<area shape="rect" id="Node000005" href="$user_8hpp.html" title="Header file for User and Transaction models." alt="" coords="192,152,333,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="219,103,248,140,243,143,215,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="357,152,408,177"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="237,102,345,145,343,150,235,106"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="247,180,185,220,182,215,244,175"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="219,225,282,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="263,178,258,212,252,211,258,177"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="307,225,453,251"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="283,175,350,216,348,220,280,180"/>
+</map>

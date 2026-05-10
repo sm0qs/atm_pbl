@@ -1,0 +1,7 @@
+<map id="src/storage/storage.hpp" name="src/storage/storage.hpp">
+<area shape="rect" id="Node000001" title="User data persistence layer." alt="" coords="74,5,249,31"/>
+<area shape="rect" id="Node000002" href="$atm_8cpp.html" title="Implementation of the main ATM system controller logic." alt="" coords="5,79,139,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,41,88,81,85,76,135,37"/>
+<area shape="rect" id="Node000003" href="$storage_8cpp.html" title="Implementation of file&#45;based user data persistence." alt="" coords="163,79,338,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,37,238,76,234,81,185,41"/>
+</map>

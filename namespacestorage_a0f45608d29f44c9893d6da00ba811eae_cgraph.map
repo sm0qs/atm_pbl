@@ -1,0 +1,5 @@
+<map id="storage::loadUsers" name="storage::loadUsers">
+<area shape="rect" id="Node000001" title="Loads user records from a JSON file." alt="" coords="5,5,149,31"/>
+<area shape="rect" id="Node000002" href="$classUser.html#a73b56a8c6c1c76b914f8330d5242d586" title="Deserializes User object from JSON format." alt="" coords="197,5,323,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,15,183,15,183,21,150,21"/>
+</map>

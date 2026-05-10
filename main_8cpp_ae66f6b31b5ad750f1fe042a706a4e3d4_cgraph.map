@@ -1,0 +1,19 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Main function." alt="" coords="5,56,60,81"/>
+<area shape="rect" id="Node000002" href="$namespaceauth.html#a42335469b7ba8836f9bace5979ac96c8" title="Initializes the sodium library." alt="" coords="132,31,212,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,61,118,50,119,56,61,66"/>
+<area shape="rect" id="Node000003" href="$classATMSystem.html#a9e1bc1bb65252e003f32934657bcc2f8" title="Starts the main application execution loop." alt="" coords="108,80,236,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="61,71,95,77,94,82,60,76"/>
+<area shape="rect" id="Node000004" href="$classATMSystem.html#a7f92ef154fb83df82f9674c3a4384236" title="Securely adds a new user to the system." alt="" coords="285,5,447,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,77,235,65,283,40,303,32,304,37,285,44,237,70,208,82"/>
+<area shape="rect" id="Node000006" href="$namespaceui.html#aea0f52471194711a1293459820e9a66a" title="Prompts the user to press enter to continue." alt="" coords="284,55,448,80"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="236,82,270,77,271,82,237,87"/>
+<area shape="rect" id="Node000007" href="$namespaceui.html#ac1fc8a951e1e49e48d534abea9df4a47" title="Prints a formatted header with a title." alt="" coords="307,104,425,129"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="237,98,293,105,292,110,236,103"/>
+<area shape="rect" id="Node000009" href="$namespaceauth.html#a999ec75b390ae89517bca08df7fb47e5" title="Verifies a password against a stored hash." alt="" coords="287,153,445,179"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="202,103,285,138,309,147,308,152,283,143,200,108"/>
+<area shape="rect" id="Node000005" href="$namespaceauth.html#a66b55b8603ce2214924d902c0dd90ba7" title="Securely hashes a password." alt="" coords="496,5,647,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="447,15,482,15,482,21,447,21"/>
+<area shape="rect" id="Node000008" href="$namespaceui.html#a4ca64204ce1619b278509298d44f0ece" title="Clears the console window." alt="" coords="512,104,631,129"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="425,114,499,114,499,119,425,119"/>
+</map>

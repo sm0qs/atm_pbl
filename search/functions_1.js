@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['menu_1',['menu',['../main_8cpp.html#ae83fcdbeb2b6757fc741ae953b633ee1',1,'main.cpp']]]
+  ['clearscreen_0',['clearScreen',['../namespaceui.html#a4ca64204ce1619b278509298d44f0ece',1,'ui']]]
 ];
