@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.3)
+cmake_minimum_required(VERSION 3.14)
 project(
     ATM_Project
     VERSION 1.0
@@ -51,8 +51,8 @@ target_link_libraries(atm PRIVATE atm_lib)
 
 # Tests
 enable_testing()
-add_executable(atm_tests 
-    tests/test_auth.cpp 
+add_executable(atm_tests
+    tests/test_auth.cpp
     tests/test_models.cpp
     tests/test_logic.cpp
 )
