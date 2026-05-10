@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.16.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -6,9 +7,15 @@
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ATM Project: ATM System - UML Documentation</title>
+<!--BEGIN PROJECT_ICON-->
+<link rel="icon" href="$projecticon" type="image/x-icon" />
+<!--END PROJECT_ICON-->
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<!--BEGIN COPY_CLIPBOARD-->
+<script type="text/javascript" src="clipboard.js"></script>
+<!--END COPY_CLIPBOARD-->
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,6 +25,28 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        mermaid.initialize({ startOnLoad: true });
+        // Find all Doxygen fragments that contain Mermaid code
+        document.querySelectorAll('div.fragment').forEach(function(fragment) {
+            const text = fragment.textContent.trim();
+            const mermaidKeywords = [
+                'graph ', 'sequenceDiagram', 'classDiagram', 
+                'stateDiagram', 'erDiagram', 'gantt', 'pie', 
+                'gitGraph', 'journey', 'quadrantChart', 'mindmap'
+            ];
+            const isMermaid = mermaidKeywords.some(keyword => text.startsWith(keyword));
+            if (isMermaid) {
+                const mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = text;
+                fragment.parentNode.replaceChild(mermaidDiv, fragment);
+            }
+        });
+    });
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -94,46 +123,44 @@ $(document).ready(function(){initNavTree('md_docs_2UML.html',''); initResizable(
   <div class="headertitle"><div class="title">ATM System - UML Documentation</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> This document contains visual representations of the system architecture and logic using Mermaid syntax. These diagrams complement the automatically generated Class Diagrams in the Doxygen documentation.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> This document contains visual representations of the system architecture and logic using Mermaid syntax.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 1. Use Case Diagram</h1>
 <p>Describes the interactions between actors (<a class="el" href="classUser.html" title="Represents a bank user account with security and balance information.">User</a> and Administrator) and the system.</p>
-<div class="fragment"><div class="line">useCaseDiagram</div>
-<div class="line">    actor &quot;Bank User&quot; as User</div>
-<div class="line">    actor &quot;Administrator&quot; as Admin</div>
+<div class="fragment"><div class="line">graph LR</div>
+<div class="line">    User((Bank User))</div>
+<div class="line">    Admin((Administrator))</div>
 <div class="line"> </div>
-<div class="line">    package &quot;ATM System&quot; {</div>
-<div class="line">        usecase &quot;Login&quot; as UC1</div>
-<div class="line">        usecase &quot;Check Balance&quot; as UC2</div>
-<div class="line">        usecase &quot;Deposit Funds&quot; as UC3</div>
-<div class="line">        usecase &quot;Withdraw Funds&quot; as UC4</div>
-<div class="line">        usecase &quot;View History&quot; as UC5</div>
-<div class="line">        usecase &quot;Logout&quot; as UC6</div>
-<div class="line">        </div>
-<div class="line">        usecase &quot;Create New Account&quot; as UC7</div>
-<div class="line">        usecase &quot;Reset User PIN&quot; as UC8</div>
-<div class="line">        usecase &quot;Unlock Account&quot; as UC9</div>
-<div class="line">        usecase &quot;List All Accounts&quot; as UC10</div>
-<div class="line">        usecase &quot;Initial Setup&quot; as UC11</div>
-<div class="line">    }</div>
+<div class="line">    subgraph ATM_System [ATM System]</div>
+<div class="line">        UC1(Login)</div>
+<div class="line">        UC2(Check Balance)</div>
+<div class="line">        UC3(Deposit Funds)</div>
+<div class="line">        UC4(Withdraw Funds)</div>
+<div class="line">        UC5(View History)</div>
+<div class="line">        UC6(Logout)</div>
+<div class="line">        UC7(Create New Account)</div>
+<div class="line">        UC8(Reset User PIN)</div>
+<div class="line">        UC9(Unlock Account)</div>
+<div class="line">        UC10(List All Accounts)</div>
+<div class="line">        UC11(Initial Setup)</div>
+<div class="line">    end</div>
 <div class="line"> </div>
-<div class="line">    User --&gt; UC1</div>
-<div class="line">    UC1 &lt;.. UC2 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC3 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC4 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC5 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC6 : &lt;&lt;include&gt;&gt;</div>
+<div class="line">    User --- UC1</div>
+<div class="line">    UC1 -.-&gt; UC2</div>
+<div class="line">    UC1 -.-&gt; UC3</div>
+<div class="line">    UC1 -.-&gt; UC4</div>
+<div class="line">    UC1 -.-&gt; UC5</div>
+<div class="line">    UC1 -.-&gt; UC6</div>
 <div class="line"> </div>
-<div class="line">    Admin --&gt; UC1</div>
-<div class="line">    UC1 &lt;.. UC7 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC8 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC9 : &lt;&lt;include&gt;&gt;</div>
-<div class="line">    UC1 &lt;.. UC10 : &lt;&lt;include&gt;&gt;</div>
+<div class="line">    Admin --- UC1</div>
+<div class="line">    UC1 -.-&gt; UC7</div>
+<div class="line">    UC1 -.-&gt; UC8</div>
+<div class="line">    UC1 -.-&gt; UC9</div>
+<div class="line">    UC1 -.-&gt; UC10</div>
 <div class="line">    </div>
-<div class="line">    Admin --&gt; UC11 : &quot;If no admin exists&quot;</div>
+<div class="line">    Admin --- UC11</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
 2. Sequence Diagram - Successful Login</h1>
-<p>Shows the flow of information during the login process.</p>
 <div class="fragment"><div class="line">sequenceDiagram</div>
 <div class="line">    participant U as User/Admin</div>
 <div class="line">    participant A as ATMSystem</div>
@@ -163,8 +190,8 @@ $(document).ready(function(){initNavTree('md_docs_2UML.html',''); initResizable(
 <div class="line">    A-&gt;&gt;A: Set isBlocked = true</div>
 <div class="line">    A-&gt;&gt;U: Display &quot;ACCOUNT BLOCKED&quot; error</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
-4. Class Diagram (Simplified Architecture)</h1>
-<p>For detailed, interactive class diagrams including all members and relations, please refer to the <b>Class Hierarchy</b> section in the generated Doxygen documentation.</p>
+4. Class Diagram (Simplified)</h1>
+<p><em>Note: For detailed, interactive class diagrams generated from code, see the "Classes" section in Doxygen.</em></p>
 <div class="fragment"><div class="line">classDiagram</div>
 <div class="line">    class ATMSystem {</div>
 <div class="line">        -map users</div>

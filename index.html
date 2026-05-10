@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.16.1-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -6,9 +7,15 @@
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>ATM Project: ATM</title>
+<!--BEGIN PROJECT_ICON-->
+<link rel="icon" href="$projecticon" type="image/x-icon" />
+<!--END PROJECT_ICON-->
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<!--BEGIN COPY_CLIPBOARD-->
+<script type="text/javascript" src="clipboard.js"></script>
+<!--END COPY_CLIPBOARD-->
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -18,6 +25,28 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        mermaid.initialize({ startOnLoad: true });
+        // Find all Doxygen fragments that contain Mermaid code
+        document.querySelectorAll('div.fragment').forEach(function(fragment) {
+            const text = fragment.textContent.trim();
+            const mermaidKeywords = [
+                'graph ', 'sequenceDiagram', 'classDiagram', 
+                'stateDiagram', 'erDiagram', 'gantt', 'pie', 
+                'gitGraph', 'journey', 'quadrantChart', 'mindmap'
+            ];
+            const isMermaid = mermaidKeywords.some(keyword => text.startsWith(keyword));
+            if (isMermaid) {
+                const mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = text;
+                fragment.parentNode.replaceChild(mermaidDiv, fragment);
+            }
+        });
+    });
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->

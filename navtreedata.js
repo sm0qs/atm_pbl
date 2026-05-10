@@ -30,7 +30,7 @@ var NAVTREE =
       [ "1. Use Case Diagram", "md_docs_2UML.html#autotoc_md1", null ],
       [ "2. Sequence Diagram - Successful Login", "md_docs_2UML.html#autotoc_md2", null ],
       [ "3. Sequence Diagram - Account Lockout", "md_docs_2UML.html#autotoc_md3", null ],
-      [ "4. Class Diagram (Simplified Architecture)", "md_docs_2UML.html#autotoc_md4", null ]
+      [ "4. Class Diagram (Simplified)", "md_docs_2UML.html#autotoc_md4", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
