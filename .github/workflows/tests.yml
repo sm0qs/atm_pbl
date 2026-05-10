@@ -1,13 +1,23 @@
-name: C++ CI
+name: Tests
 
 on:
   push:
     branches: [ "main", "feature/tests" ]
+    paths:
+      - 'src/**.cpp'
+      - 'src/**.hpp'
+      - 'tests/**.cpp'
+      - 'CMakeLists.txt'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'src/**.cpp'
+      - 'src/**.hpp'
+      - 'tests/**.cpp'
+      - 'CMakeLists.txt'
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
