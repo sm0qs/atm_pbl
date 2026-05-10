@@ -1,7 +1,9 @@
 <map id="auth::verifyPassword" name="auth::verifyPassword">
-<area shape="rect" id="Node000001" title="Verifies a password against a stored hash." alt="" coords="284,5,441,31"/>
-<area shape="rect" id="Node000002" href="$classATMSystem.html#a9e1bc1bb65252e003f32934657bcc2f8" title="Starts the main application execution loop." alt="" coords="108,5,236,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,21,236,21,236,15,270,15"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function." alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="rect" id="Node000001" title="Verifies a password against a stored hash." alt="" coords="511,5,668,31"/>
+<area shape="rect" id="Node000002" href="$classATMSystem.html#acce45e35e58d9d909c5ff3f6756c017e" title="Verifies login credentials." alt="" coords="284,5,463,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="497,21,463,21,463,15,497,15"/>
+<area shape="rect" id="Node000003" href="$classATMSystem.html#a9e1bc1bb65252e003f32934657bcc2f8" title="Starts the main application execution loop." alt="" coords="108,5,236,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="270,21,236,21,236,15,270,15"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main function." alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
 </map>

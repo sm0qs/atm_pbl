@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verifypassword_0',['verifyPassword',['../namespaceauth.html#a999ec75b390ae89517bca08df7fb47e5',1,'auth']]]
+  ['user_0',['user',['../classUser.html#a4a0137053e591fbb79d9057dd7d2283d',1,'User::User()'],['../classUser.html#a3437df512bac6e497e59924f94dc8fc1',1,'User::User(std::string acc, std::string hashedPwd, double initialBalance)']]]
 ];

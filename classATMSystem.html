@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('classATMSystem.html',''); initResizabl
 <div class="dynheader">
 Collaboration diagram for ATMSystem:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classATMSystem__coll__graph.svg" width="127" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classATMSystem__coll__graph.svg" width="176" height="196"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -145,10 +145,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f92ef154fb83df82f9674c3a4384236" id="r_a7f92ef154fb83df82f9674c3a4384236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classATMSystem.html#a7f92ef154fb83df82f9674c3a4384236">addUser</a> (const std::string &amp;acc, const std::string &amp;pin, double initialBalance)</td></tr>
 <tr class="memdesc:a7f92ef154fb83df82f9674c3a4384236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Securely adds a new user to the system.  <br /></td></tr>
 <tr class="separator:a7f92ef154fb83df82f9674c3a4384236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce45e35e58d9d909c5ff3f6756c017e" id="r_acce45e35e58d9d909c5ff3f6756c017e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classATMSystem.html#acce45e35e58d9d909c5ff3f6756c017e">verifyLogin</a> (const std::string &amp;acc, const std::string &amp;pin)</td></tr>
+<tr class="memdesc:acce45e35e58d9d909c5ff3f6756c017e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies login credentials.  <br /></td></tr>
+<tr class="separator:acce45e35e58d9d909c5ff3f6756c017e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a946d48028095e0ae5709a45c5877ce74" id="r_a946d48028095e0ae5709a45c5877ce74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classATMSystem.html#a946d48028095e0ae5709a45c5877ce74">performDeposit</a> (const std::string &amp;acc, double amount)</td></tr>
+<tr class="memdesc:a946d48028095e0ae5709a45c5877ce74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a deposit operation.  <br /></td></tr>
+<tr class="separator:a946d48028095e0ae5709a45c5877ce74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e3c2105cbeb4a7e5ab2657e6ba2b85" id="r_ae6e3c2105cbeb4a7e5ab2657e6ba2b85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classATMSystem.html#ae6e3c2105cbeb4a7e5ab2657e6ba2b85">performWithdrawal</a> (const std::string &amp;acc, double amount)</td></tr>
+<tr class="memdesc:ae6e3c2105cbeb4a7e5ab2657e6ba2b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a withdrawal operation.  <br /></td></tr>
+<tr class="separator:ae6e3c2105cbeb4a7e5ab2657e6ba2b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e1bc1bb65252e003f32934657bcc2f8" id="r_a9e1bc1bb65252e003f32934657bcc2f8"><td class="memItemLeft" align="right" valign="top"><a id="a9e1bc1bb65252e003f32934657bcc2f8" name="a9e1bc1bb65252e003f32934657bcc2f8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
 <tr class="memdesc:a9e1bc1bb65252e003f32934657bcc2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the main application execution loop. <br /></td></tr>
 <tr class="separator:a9e1bc1bb65252e003f32934657bcc2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62cb016349e59fd2b9eda95bf2c9cdb" id="r_ab62cb016349e59fd2b9eda95bf2c9cdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUser.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classATMSystem.html#ab62cb016349e59fd2b9eda95bf2c9cdb">getUser</a> (const std::string &amp;acc) const</td></tr>
+<tr class="memdesc:ab62cb016349e59fd2b9eda95bf2c9cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves user information (primarily for testing).  <br /></td></tr>
+<tr class="separator:ab62cb016349e59fd2b9eda95bf2c9cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Controller class managing the ATM workflow, users, and security. </p>
@@ -235,6 +247,157 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classATMSystem_a7f92ef154fb83df82f9674c3a4384236_icgraph.svg" width="451" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab62cb016349e59fd2b9eda95bf2c9cdb" name="ab62cb016349e59fd2b9eda95bf2c9cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62cb016349e59fd2b9eda95bf2c9cdb">&#9670;&#160;</a></span>getUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classUser.html">User</a> ATMSystem::getUser </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>acc</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves user information (primarily for testing). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">acc</td><td>Account number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classUser.html" title="Represents a bank user account with security and balance information.">User</a> object or throws if not found. </dd></dl>
+
+</div>
+</div>
+<a id="a946d48028095e0ae5709a45c5877ce74" name="a946d48028095e0ae5709a45c5877ce74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a946d48028095e0ae5709a45c5877ce74">&#9670;&#160;</a></span>performDeposit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ATMSystem::performDeposit </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>acc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a deposit operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">acc</td><td>Account number. </td></tr>
+    <tr><td class="paramname">amount</td><td>Amount to deposit. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful. </dd></dl>
+
+</div>
+</div>
+<a id="ae6e3c2105cbeb4a7e5ab2657e6ba2b85" name="ae6e3c2105cbeb4a7e5ab2657e6ba2b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e3c2105cbeb4a7e5ab2657e6ba2b85">&#9670;&#160;</a></span>performWithdrawal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ATMSystem::performWithdrawal </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>acc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a withdrawal operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">acc</td><td>Account number. </td></tr>
+    <tr><td class="paramname">amount</td><td>Amount to withdraw. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if successful. </dd></dl>
+
+</div>
+</div>
+<a id="acce45e35e58d9d909c5ff3f6756c017e" name="acce45e35e58d9d909c5ff3f6756c017e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce45e35e58d9d909c5ff3f6756c017e">&#9670;&#160;</a></span>verifyLogin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ATMSystem::verifyLogin </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>acc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifies login credentials. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">acc</td><td>Account number. </td></tr>
+    <tr><td class="paramname">pin</td><td>Plain text PIN. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if login successful, false otherwise. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classATMSystem_acce45e35e58d9d909c5ff3f6756c017e_cgraph.svg" width="395" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classATMSystem_acce45e35e58d9d909c5ff3f6756c017e_icgraph.svg" width="468" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

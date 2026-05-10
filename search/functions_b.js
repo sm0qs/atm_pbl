@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_0',['user',['../classUser.html#a4a0137053e591fbb79d9057dd7d2283d',1,'User::User()'],['../classUser.html#a3437df512bac6e497e59924f94dc8fc1',1,'User::User(std::string acc, std::string hashedPwd, double initialBalance)']]]
+  ['to_5fjson_0',['to_json',['../classUser.html#a3118630e74497be7c48ec510b9fa81e5',1,'User']]]
 ];

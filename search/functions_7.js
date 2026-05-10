@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pauseandcontinue_0',['pauseAndContinue',['../namespaceui.html#aea0f52471194711a1293459820e9a66a',1,'ui']]],
-  ['printheader_1',['printHeader',['../namespaceui.html#ac1fc8a951e1e49e48d534abea9df4a47',1,'ui']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]]
 ];

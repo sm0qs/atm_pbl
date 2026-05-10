@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_0',['User',['../classUser.html',1,'']]]
+  ['transaction_0',['Transaction',['../structTransaction.html',1,'']]]
 ];
