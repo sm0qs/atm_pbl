@@ -1,39 +1,39 @@
 # Secure ATM Simulator (C++)
 
-Zaawansowany symulator bankomatu stworzony w języku C++, wykorzystujący nowoczesne standardy kryptograficzne oraz zautomatyzowany system budowania projektu. Aplikacja realizuje wszystkie wymagania zawarte w specyfikacji technicznej projektu Bankomat.
+An advanced ATM simulator developed in C++, utilizing modern cryptographic standards and an automated project build system. The application fulfills all requirements specified in the "Bankomat.pdf" technical documentation.
 
-## Bezpieczeństwo i Technologia
+## Security and Technology
 
-Projekt został zaimplementowany z naciskiem na bezpieczeństwo oraz modularność:
-* **Kryptografia (libsodium):** PIN-y użytkowników są zabezpieczone algorytmem Argon2id (funkcja `crypto_pwhash`). Zgodnie z wymaganiami bezpieczeństwa, system nie przechowuje haseł w postaci jawnej.
-* **Trwałość danych (JSON):** Stan kont oraz historia operacji są zapisywane w formacie JSON, co zapewnia trwałość danych między sesjami programu.
-* **Automatyzacja (CMake):** Zastosowanie modułu FetchContent w pliku CMakeLists.txt sprawia, że biblioteki zewnętrzne (libsodium oraz nlohmann_json) są pobierane i konfigurowane automatycznie podczas budowania projektu.
+The project has been implemented with a strong emphasis on security and modularity:
+* **Cryptography (libsodium):** User PINs are secured using the Argon2id algorithm (`crypto_pwhash` function). In accordance with security requirements, the system does not store passwords in plain text.
+* **Data Persistence (JSON):** Account states and transaction histories are saved in JSON format, ensuring data persistence between program sessions.
+* **Automation (CMake):** The use of the FetchContent module in the CMakeLists.txt file ensures that external libraries (libsodium and nlohmann_json) are automatically downloaded and configured during the build process.
 
-## Funkcjonalności
+## Features
 
-### Użytkownik
-* **Logowanie:** Proces autoryzacji z mechanizmem blokady konta po trzech nieudanych próbach.
-* **Zarządzanie środkami:** Sprawdzanie aktualnego salda, wpłaty oraz wypłaty z obowiązkową weryfikacją dostępnych funduszy.
-* **Historia:** Wgląd w listę operacji, takich jak wpłaty, wypłaty i sesje logowania.
+### User
+* **Login:** Authentication process with a lockout mechanism after three failed attempts.
+* **Fund Management:** Checking current balance, deposits, and withdrawals with mandatory verification of available funds.
+* **History:** Access to a list of operations, including deposits, withdrawals, and login sessions.
 
 ### Administrator
-* Tworzenie nowych kont użytkowników.
-* Resetowanie kodów PIN.
-* Odblokowywanie kont zablokowanych przez system.
+* Creation of new user accounts.
+* Resetting user PINs.
+* Unlocking accounts blocked by the system.
 
-## Struktura Projektu
+## Project Structure
 
-Kod jest podzielony na dedykowane przestrzenie nazw, co zapewnia wysoką modularność:
-* **auth:** Obsługa bezpiecznego hashowania i weryfikacji kodów PIN.
-* **logic:** Główna logika sterująca systemem ATM.
-* **storage:** Warstwa trwałego przechowywania danych i serializacji do formatu JSON.
-* **ui:** Obsługa interfejsu użytkownika oraz walidacja danych wejściowych.
+The code is divided into dedicated namespaces, ensuring high modularity:
+* **auth:** Handles secure hashing and PIN verification.
+* **logic:** Main logic controlling the ATM system.
+* **storage:** Data persistence layer and JSON serialization.
+* **ui:** User interface handling and input validation.
 
-## Kompilacja i Uruchomienie
+## Compilation and Execution
 
-Projekt wykorzystuje system budowania CMake.
+The project utilizes the CMake build system.
 
-1. **Konfiguracja i kompilacja:**
+1. **Configuration and compilation:**
    ```bash
    mkdir build && cd build
    cmake ..
