@@ -51,9 +51,40 @@ public:
     void addUser(const std::string& acc, const std::string& pin, double initialBalance);
     
     /**
+     * @brief Verifies login credentials.
+     * @param acc Account number.
+     * @param pin Plain text PIN.
+     * @return true if login successful, false otherwise.
+     */
+    bool verifyLogin(const std::string& acc, const std::string& pin);
+
+    /**
+     * @brief Performs a deposit operation.
+     * @param acc Account number.
+     * @param amount Amount to deposit.
+     * @return true if successful.
+     */
+    bool performDeposit(const std::string& acc, double amount);
+
+    /**
+     * @brief Performs a withdrawal operation.
+     * @param acc Account number.
+     * @param amount Amount to withdraw.
+     * @return true if successful.
+     */
+    bool performWithdrawal(const std::string& acc, double amount);
+
+    /**
      * @brief Starts the main application execution loop.
      */
     void run();
+
+    /**
+     * @brief Retrieves user information (primarily for testing).
+     * @param acc Account number.
+     * @return User object or throws if not found.
+     */
+    User getUser(const std::string& acc) const;
 };
 
 #endif
