@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on version tags like v1.0.0
+
+permissions:
+  contents: write # Needed to create a release
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake
+
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+      run: cmake --build build --config Release
+
+    - name: Package Executable
+      run: |
+        mkdir -p release_assets
+        cp build/atm release_assets/
+        cp README.md release_assets/
+        tar -czvf atm-linux-x64.tar.gz -C release_assets .
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: atm-linux-x64.tar.gz
+        body: "Automated build of the ATM project."
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
