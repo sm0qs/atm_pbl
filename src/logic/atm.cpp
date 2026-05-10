@@ -104,6 +104,50 @@ void ATMSystem::adminMenu() {
     } while (choice != 5);
 }
 
+bool ATMSystem::verifyLogin(const std::string& acc, const std::string& pin) {
+    if (users.find(acc) == users.end()) return false;
+    User& u = users[acc];
+    if (u.isBlocked) return false;
+
+    if (auth::verifyPassword(u.hashedPassword, pin)) {
+        u.loginAttempts = 0;
+        u.history.push_back({"Login", 0});
+        saveState();
+        return true;
+    } else {
+        u.loginAttempts++;
+        if (u.loginAttempts >= 3) {
+            u.isBlocked = true;
+        }
+        saveState();
+        return false;
+    }
+}
+
+bool ATMSystem::performDeposit(const std::string& acc, double amount) {
+    if (users.find(acc) == users.end() || amount <= 0) return false;
+    User& u = users[acc];
+    u.balance += amount;
+    u.history.push_back({"Deposit", amount});
+    saveState();
+    return true;
+}
+
+bool ATMSystem::performWithdrawal(const std::string& acc, double amount) {
+    if (users.find(acc) == users.end() || amount <= 0) return false;
+    User& u = users[acc];
+    if (u.balance >= amount) {
+        u.balance -= amount;
+        u.history.push_back({"Withdrawal", amount});
+        saveState();
+        return true;
+    } else {
+        u.history.push_back({"Rejected Withdrawal", amount});
+        saveState();
+        return false;
+    }
+}
+
 void ATMSystem::userMenu(User& user) {
     int choice;
     do {
@@ -129,11 +173,12 @@ void ATMSystem::userMenu(User& user) {
         case 2: {
             double amt;
             std::cout << "Deposit amount: ";
-            if (std::cin >> amt && amt > 0) {
-                user.balance += amt;
-                user.history.push_back({"Deposit", amt});
-                saveState();
+            if (std::cin >> amt && performDeposit(user.accountNumber, amt)) {
                 std::cout << "Successfully deposited.\n";
+            } else {
+                std::cout << "Deposit failed.\n";
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
             }
             ui::pauseAndContinue();
             break;
@@ -141,17 +186,12 @@ void ATMSystem::userMenu(User& user) {
         case 3: {
             double amt;
             std::cout << "Withdrawal amount: ";
-            if (std::cin >> amt && amt > 0) {
-                if (amt <= user.balance) {
-                    user.balance -= amt;
-                    user.history.push_back({"Withdrawal", amt});
-                    saveState();
-                    std::cout << "Successfully withdrawn.\n";
-                } else {
-                    std::cout << "Insufficient funds!\n";
-                    user.history.push_back({"Rejected Withdrawal", amt});
-                    saveState();
-                }
+            if (std::cin >> amt && performWithdrawal(user.accountNumber, amt)) {
+                std::cout << "Successfully withdrawn.\n";
+            } else {
+                std::cout << "Withdrawal failed (Check balance or amount).\n";
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
             }
             ui::pauseAndContinue();
             break;
@@ -202,10 +242,10 @@ void ATMSystem::run() {
             std::string pin;
             std::cout << "Administrator PIN: ";
             std::cin >> pin;
-            if (auth::verifyPassword(users["admin"].hashedPassword, pin)) {
+            if (verifyLogin("admin", pin)) {
                 adminMenu();
             } else {
-                std::cout << "[ERROR] Invalid administrator PIN.\n";
+                std::cout << "[ERROR] Invalid administrator PIN or blocked.\n";
                 ui::pauseAndContinue();
             }
         } else if (mainChoice == 1) {
@@ -219,28 +259,24 @@ void ATMSystem::run() {
                 continue;
             }
 
-            if (users.find(acc) != users.end()) {
-                User& u = users[acc];
-                if (u.isBlocked) {
-                    std::cout << "[ERROR] Account is blocked.\n";
-                } else if (auth::verifyPassword(u.hashedPassword, pin)) {
-                    u.loginAttempts = 0;
-                    u.history.push_back({"Login", 0});
-                    saveState();
-                    userMenu(u);
-                } else {
-                    u.loginAttempts++;
-                    std::cout << "[ERROR] Invalid PIN.\n";
-                    if (u.loginAttempts >= 3) {
-                        u.isBlocked = true;
-                        std::cout << "[ALARM] ACCOUNT BLOCKED!\n";
-                    }
-                    saveState();
-                }
+            if (verifyLogin(acc, pin)) {
+                userMenu(users[acc]);
             } else {
-                std::cout << "[ERROR] User not found.\n";
+                if (users.count(acc) && users[acc].isBlocked) {
+                    std::cout << "[ERROR] Account is blocked.\n";
+                } else {
+                    std::cout << "[ERROR] Invalid account or PIN.\n";
+                }
+                ui::pauseAndContinue();
             }
-            ui::pauseAndContinue();
         }
     }
+}
+
+User ATMSystem::getUser(const std::string& acc) const {
+    auto it = users.find(acc);
+    if (it == users.end()) {
+        throw std::runtime_error("User not found");
+    }
+    return it->second;
 }

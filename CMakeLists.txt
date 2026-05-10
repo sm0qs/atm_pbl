@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.3)
+cmake_minimum_required(VERSION 3.14)
 project(
     ATM_Project
     VERSION 1.0
@@ -28,11 +28,33 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(json)
 
+# GoogleTest for unit testing
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG v1.15.2
+)
+# For Windows: prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
 # Source files
 file(GLOB_RECURSE ATM_SOURCES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+list(FILTER ATM_SOURCES EXCLUDE REGEX "src/main.cpp")
 
-add_executable(atm ${ATM_SOURCES})
-target_link_libraries(atm PRIVATE sodium nlohmann_json::nlohmann_json)
+add_library(atm_lib STATIC ${ATM_SOURCES})
+target_link_libraries(atm_lib PUBLIC sodium nlohmann_json::nlohmann_json)
+target_include_directories(atm_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-# Include directories
-target_include_directories(atm PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+add_executable(atm src/main.cpp)
+target_link_libraries(atm PRIVATE atm_lib)
+
+# Tests
+enable_testing()
+add_executable(atm_tests
+    tests/test_auth.cpp
+    tests/test_models.cpp
+    tests/test_logic.cpp
+)
+target_link_libraries(atm_tests PRIVATE atm_lib GTest::gtest_main)
+add_test(NAME ATM_UnitTests COMMAND atm_tests)
