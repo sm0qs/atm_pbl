@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ATM Project: ATM</title>
+<title>ATM Project: Secure ATM Simulator (C++)</title>
 <!--BEGIN PROJECT_ICON-->
 <link rel="icon" href="$projecticon" type="image/x-icon" />
 <!--END PROJECT_ICON-->
@@ -120,19 +120,47 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">ATM </div></div>
+  <div class="headertitle"><div class="title">Secure ATM Simulator (C++) </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a> Zaawansowany symulator bankomatu stworzony w języku C++, wykorzystujący nowoczesne standardy kryptograficzne oraz zautomatyzowany system budowania projektu. Aplikacja realizuje wszystkie wymagania zawarte w specyfikacji technicznej projektu Bankomat.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
-Requirements</h1>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Windows - MSYS2</h2>
-<p>To properly build the project on Windows, it is recommended to use the <b>MSYS2</b> environment. After installing it, open the <b>MSYS2 UCRT64</b> terminal and install the necessary packages:</p>
-<div class="fragment"><div class="line">pacman -S mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gdb</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
-Linux</h2>
-<p>I don't know, man. You use Linux, figure it out yourself. </p>
+Bezpieczeństwo i Technologia</h1>
+<p>Projekt został zaimplementowany z naciskiem na bezpieczeństwo oraz modularność:</p><ul>
+<li><b>Kryptografia (libsodium):</b> PIN-y użytkowników są zabezpieczone algorytmem Argon2id (funkcja <code>crypto_pwhash</code>). Zgodnie z wymaganiami bezpieczeństwa, system nie przechowuje haseł w postaci jawnej.</li>
+<li><b>Trwałość danych (JSON):</b> Stan kont oraz historia operacji są zapisywane w formacie JSON, co zapewnia trwałość danych między sesjami programu.</li>
+<li><b>Automatyzacja (CMake):</b> Zastosowanie modułu FetchContent w pliku CMakeLists.txt sprawia, że biblioteki zewnętrzne (libsodium oraz nlohmann_json) są pobierane i konfigurowane automatycznie podczas budowania projektu.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Funkcjonalności</h1>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Użytkownik</h2>
+<ul>
+<li><b>Logowanie:</b> Proces autoryzacji z mechanizmem blokady konta po trzech nieudanych próbach.</li>
+<li><b>Zarządzanie środkami:</b> Sprawdzanie aktualnego salda, wpłaty oraz wypłaty z obowiązkową weryfikacją dostępnych funduszy.</li>
+<li><b>Historia:</b> Wgląd w listę operacji, takich jak wpłaty, wypłaty i sesje logowania.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Administrator</h2>
+<ul>
+<li>Tworzenie nowych kont użytkowników.</li>
+<li>Resetowanie kodów PIN.</li>
+<li>Odblokowywanie kont zablokowanych przez system.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Struktura Projektu</h1>
+<p>Kod jest podzielony na dedykowane przestrzenie nazw, co zapewnia wysoką modularność:</p><ul>
+<li><b>auth:</b> Obsługa bezpiecznego hashowania i weryfikacji kodów PIN.</li>
+<li><b>logic:</b> Główna logika sterująca systemem ATM.</li>
+<li><b>storage:</b> Warstwa trwałego przechowywania danych i serializacji do formatu JSON.</li>
+<li><b>ui:</b> Obsługa interfejsu użytkownika oraz walidacja danych wejściowych.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Kompilacja i Uruchomienie</h1>
+<p>Projekt wykorzystuje system budowania CMake.</p>
+<ol type="1">
+<li><b>Konfiguracja i kompilacja:</b> ```bash mkdir build &amp;&amp; cd build cmake .. make </li>
+</ol>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

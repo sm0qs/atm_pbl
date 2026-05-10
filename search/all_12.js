@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['ui_0',['ui',['../namespaceui.html',1,'']]],
-  ['ui_2ecpp_1',['ui.cpp',['../ui_8cpp.html',1,'']]],
-  ['ui_2ehpp_2',['ui.hpp',['../ui_8hpp.html',1,'']]],
-  ['uml_20documentation_3',['ATM System - UML Documentation',['../md_docs_2UML.html',1,'']]],
-  ['use_20case_20diagram_4',['1. Use Case Diagram',['../md_docs_2UML.html#autotoc_md1',1,'']]],
-  ['user_5',['user',['../classUser.html',1,'User'],['../classUser.html#a4a0137053e591fbb79d9057dd7d2283d',1,'User::User()'],['../classUser.html#a3437df512bac6e497e59924f94dc8fc1',1,'User::User(std::string acc, std::string hashedPwd, double initialBalance)']]],
-  ['user_2ecpp_6',['user.cpp',['../user_8cpp.html',1,'']]],
-  ['user_2ehpp_7',['user.hpp',['../user_8hpp.html',1,'']]]
+  ['technologia_0',['Bezpieczeństwo i Technologia',['../index.html#autotoc_md6',1,'']]],
+  ['to_5fjson_1',['to_json',['../classUser.html#a3118630e74497be7c48ec510b9fa81e5',1,'User']]],
+  ['transaction_2',['Transaction',['../structTransaction.html',1,'']]],
+  ['type_3',['type',['../structTransaction.html#a0c0b931f105f8e7d2fe9865f75a4be9c',1,'Transaction']]]
 ];

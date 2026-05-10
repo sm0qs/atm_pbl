@@ -1,5 +1,13 @@
 var searchData=
 [
-  ['verifylogin_0',['verifyLogin',['../classATMSystem.html#acce45e35e58d9d909c5ff3f6756c017e',1,'ATMSystem']]],
-  ['verifypassword_1',['verifyPassword',['../namespaceauth.html#a999ec75b390ae89517bca08df7fb47e5',1,'auth']]]
+  ['użytkownik_0',['Użytkownik',['../index.html#autotoc_md8',1,'']]],
+  ['ui_1',['ui',['../namespaceui.html',1,'']]],
+  ['ui_2ecpp_2',['ui.cpp',['../ui_8cpp.html',1,'']]],
+  ['ui_2ehpp_3',['ui.hpp',['../ui_8hpp.html',1,'']]],
+  ['uml_20documentation_4',['ATM System - UML Documentation',['../md_docs_2UML.html',1,'']]],
+  ['uruchomienie_5',['Kompilacja i Uruchomienie',['../index.html#autotoc_md11',1,'']]],
+  ['use_20case_20diagram_6',['1. Use Case Diagram',['../md_docs_2UML.html#autotoc_md1',1,'']]],
+  ['user_7',['user',['../classUser.html',1,'User'],['../classUser.html#a4a0137053e591fbb79d9057dd7d2283d',1,'User::User()'],['../classUser.html#a3437df512bac6e497e59924f94dc8fc1',1,'User::User(std::string acc, std::string hashedPwd, double initialBalance)']]],
+  ['user_2ecpp_8',['user.cpp',['../user_8cpp.html',1,'']]],
+  ['user_2ehpp_9',['user.hpp',['../user_8hpp.html',1,'']]]
 ];

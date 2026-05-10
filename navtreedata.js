@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "ATM Project", "index.html", [
-    [ "ATM", "index.html", "index" ],
+    [ "Secure ATM Simulator (C++)", "index.html", "index" ],
     [ "ATM System - UML Documentation", "md_docs_2UML.html", [
       [ "1. Use Case Diagram", "md_docs_2UML.html#autotoc_md1", null ],
       [ "2. Sequence Diagram - Successful Login", "md_docs_2UML.html#autotoc_md2", null ],
