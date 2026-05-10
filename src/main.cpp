@@ -1,97 +1,160 @@
-/**
- * @file main.cpp
- * @brief Entry point for the ATM project.
- */
-
+#include <algorithm>
+#include <iomanip>
 #include <iostream>
-#include <limits>
+#include <map>
+#include <string>
+#include <vector>
 
-/**
- * @brief Clears the console screen.
- *
- * Uses a platform-specific system command to clear the terminal output:
- * - On Windows the `cls` command is used.
- * - On POSIX systems the `clear` command is used.
- */
-void clearScreen() {
-#ifdef _WIN32
-	system("cls");
-#else
-	system("clear");
-#endif
-}
+// Prosta struktura do logowania historii [cite: 13, 33]
+struct Transaction {
+	std::string type;
+	double amount;
+};
 
-/**
- * @brief Reads a value of type T from the user with a prompt.
- *
- * Prints @p prompt to standard output and attempts to parse a value of type
- * `T` from `std::cin`. On parse failure the stream is cleared and the rest
- * of the input line is discarded.
- *
- * Example: `int choice; readValue<int>(choice, "Enter choice: ");`
- *
- * @tparam T The type of value to read (e.g. `int`, `double`).
- * @param[out] value Reference where the parsed value will be stored on success.
- * @param[in] prompt The message displayed to the user before reading input.
- * @return `true` if a value of type `T` was successfully read and stored,
- *         `false` if input parsing failed.
- */
-template <typename T> bool readValue(T &value, const std::string &prompt) {
-	std::cout << prompt;
-	if (!(std::cin >> value)) {
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		return false;
+// Klasa reprezentująca Użytkownika [cite: 6, 8]
+class User {
+  private:
+	std::string accountNumber;		  // [cite: 9]
+	size_t pinHash;					  // Zaszyfrowany/hashowany PIN
+	double balance;					  // [cite: 12]
+	int loginAttempts;				  // [cite: 15]
+	bool isBlocked;					  // [cite: 15]
+	std::vector<Transaction> history; // [cite: 13]
+
+	// Prosta funkcja haszująca dla demonstracji [cite: 35]
+	size_t hashPin(const std::string &pin) const { return std::hash<std::string>{}(pin); }
+
+  public:
+	User(std::string acc, std::string pin, double initialBalance)
+		: accountNumber(acc), balance(initialBalance), loginAttempts(0), isBlocked(false) {
+		pinHash = hashPin(pin);
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	return true;
-}
 
-/**
- * @brief Displays the main menu and gets the user's choice.
- * @return The user's menu choice.
- * @retval 1 User Login selected.
- * @retval 2 Admin Login selected.
- * @retval 3 Exit selected.
- */
-int menu() {
-	clearScreen();
-	std::cout << "=== ATM Terminal ===" << std::endl;
-	std::cout << "1. User Login" << std::endl;
-	std::cout << "2. Admin Login" << std::endl;
-	std::cout << "3. Exit" << std::endl;
+	bool authenticate(const std::string &pin) {
+		if (isBlocked)
+			return false;
 
-	int choice;
-	while (true) {
-		if (readValue<int>(choice, "Enter your choice (1-3): ")) {
-			if (choice >= 1 && choice <= 3)
-				break;
+		if (hashPin(pin) == pinHash) {
+			loginAttempts = 0;
+			return true;
+		} else {
+			loginAttempts++;
+			if (loginAttempts >= 3) {
+				isBlocked = true; // Blokada po 3 próbach
+			}
+			return false;
 		}
-		std::cout << "Invalid choice. Please enter a number between 1 and 3." << std::endl;
 	}
-	clearScreen();
-	return choice;
-}
 
-/**
- * @brief Program entry point.
- * @return Program exit status. Returns 0 on normal termination.
- */
+	void deposit(double amount) { // [cite: 19]
+		balance += amount;
+		history.push_back({"Wplata", amount});
+	}
+
+	bool withdraw(double amount) { // [cite: 20]
+		if (amount > balance)
+			return false; // Brak środków [cite: 23]
+		balance -= amount;
+		history.push_back({"Wyplata", amount});
+		return true;
+	}
+
+	void addLoginHistory() { history.push_back({"Logowanie", 0}); }
+	double getBalance() const { return balance; } // [cite: 19]
+	bool getIsBlocked() const { return isBlocked; }
+	std::string getAccountNumber() const { return accountNumber; }
+
+	void showHistory() const { // [cite: 24]
+		std::cout << "\n--- Historia Operacji ---" << std::endl;
+		for (const auto &t : history) {
+			std::cout << t.type << ": " << (t.amount > 0 ? std::to_string(t.amount) : "")
+					  << std::endl;
+		}
+	}
+
+	void resetPin(const std::string &newPin) { // Opcja administratora [cite: 27]
+		pinHash = hashPin(newPin);
+		isBlocked = false;
+		loginAttempts = 0;
+	}
+};
+
+// Główna klasa Systemu Bankowego
+class ATMSystem {
+  private:
+	std::map<std::string, User> users;
+
+  public:
+	void addUser(const User &user) { users.insert({user.getAccountNumber(), user}); }
+
+	void run() {
+		while (true) {
+			std::string acc, pin;
+			std::cout << "\n=== BANKOMAT ===\nNumer konta: ";
+			std::cin >> acc;
+			std::cout << "PIN: ";
+			std::cin >> pin;
+
+			if (users.find(acc) != users.end()) {
+				User &currentUser = users.at(acc);
+
+				if (currentUser.authenticate(pin)) {
+					currentUser.addLoginHistory();
+					userMenu(currentUser);
+				} else if (currentUser.getIsBlocked()) {
+					std::cout << "Konto zablokowane! Skontaktuj sie z administratorem.\n";
+				} else {
+					std::cout << "Bledny PIN.\n";
+				}
+			} else {
+				std::cout << "Nie znaleziono uzytkownika.\n";
+			}
+		}
+	}
+
+	void userMenu(User &user) {
+		int choice;
+		do {
+			std::cout << "\n1. Saldo\n2. Wplata\n3. Wyplata\n4. Historia\n5. Wyloguj\nWybor: ";
+			std::cin >> choice;
+
+			switch (choice) {
+			case 1:
+				std::cout << "Saldo: " << std::fixed << std::setprecision(2) << user.getBalance()
+						  << " PLN\n";
+				break;
+			case 2: {
+				double amt;
+				std::cout << "Kwota wplaty: ";
+				std::cin >> amt;
+				user.deposit(amt);
+				break;
+			}
+			case 3: {
+				double amt;
+				std::cout << "Kwota wyplaty: ";
+				std::cin >> amt;
+				if (user.withdraw(amt))
+					std::cout << "Wyplacono.\n";
+				else
+					std::cout << "Brak srodkow na koncie!\n";
+				break;
+			}
+			case 4:
+				user.showHistory();
+				break;
+			}
+		} while (choice != 5); // Wylogowanie [cite: 24]
+	}
+};
+
 int main() {
+	ATMSystem atm;
 
-	switch (menu()) {
-	case 1: {
-		std::cout << "User Login selected." << std::endl;
-		break;
-	}
-	case 2: {
-		std::cout << "Admin Login selected." << std::endl;
-		break;
-	}
-	case 3: {
-		std::cout << "Exiting the program. Goodbye!" << std::endl;
-	}
-	}
+	// Scenariusz testowy: Tworzenie konta [cite: 26, 44]
+	atm.addUser(User("123", "1111", 1000.0));
+	atm.addUser(User("456", "2222", 500.0));
 
+	atm.run();
 	return 0;
 }
